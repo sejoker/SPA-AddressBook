@@ -22,7 +22,7 @@ function boot (app, viewLocator, system, router, logger) {
     // Enable debug message to show in the console 
     system.debug(true);
 
-    app.title = 'My App';
+    app.title = 'My Address Book';
 
     app.configurePlugins({
         router: true

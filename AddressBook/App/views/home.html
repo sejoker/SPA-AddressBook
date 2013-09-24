@@ -1,3 +1,19 @@
 ﻿<section>
-    <h2 class="page-title" data-bind="text: title"></h2>
+    <h2 class="page-title" data-bind="text: title"> </h2>
+<!--    <div class="article-counter">
+        <address data-bind="text: contacts().length"></address>
+        <address>found</address>
+    </div>-->
+    <section data-bind="foreach: contacts">
+        <article class="article-container-full-width">
+            <div>
+                <img data-bind="attr: {src: ImageUrl}"
+                    class="img-circle avatar"/>
+                <address data-bind="text: FirstName"></address>
+                <address data-bind="text: LastName"></address>
+                <address data-bind="text: Email"></address>
+                <address data-bind="text: Phone"></address>
+            </div>
+        </article>
+    </section>
 </section>

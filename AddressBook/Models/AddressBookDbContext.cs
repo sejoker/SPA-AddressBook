@@ -16,7 +16,7 @@ namespace AddressBook.Models
         {
             // Use singular table names
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            Database.SetInitializer<AddressBookDbContext>(new DropCreateDatabaseIfModelChanges<AddressBookDbContext>());
+            Database.SetInitializer<AddressBookDbContext>(new AddressBookContextInitializer());
         }
 
         public DbSet<Contact> Contacts { get; set; }

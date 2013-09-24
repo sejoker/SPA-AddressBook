@@ -12,11 +12,12 @@ namespace AddressBook.App_Start {
   ///</remarks>
   public static class BreezeWebApiConfig {
 
-    public static void RegisterBreezePreStart() {
-      GlobalConfiguration.Configuration.Routes.MapHttpRoute(
-          name: "BreezeApi",
-          routeTemplate: "api/{controller}/{action}"
-      );
-    }
+      public static void RegisterBreezePreStart()
+      {
+          GlobalConfiguration.Configuration.Routes.MapHttpRoute(
+              name: "BreezeApi",
+              routeTemplate: "api/{controller}/{action}",
+              defaults: new {controller = "breeze"});
+      }
   }
 }

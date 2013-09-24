@@ -13,14 +13,14 @@
         }
 
         function boot() {
-            log('Hot Towel SPA Loaded!', null, true);
+            log('Address Book Loaded!', null, true);
 
             router.on('router:route:not-found', function (fragment) {
                 logError('No Route Found', fragment, true);
             });
 
             var routes = [
-                { route: '', moduleId: 'home', title: 'Home', nav: 1 },
+                { route: '', moduleId: 'home', title: 'AddressBook', nav: 1 },
                 { route: 'details', moduleId: 'details', title: 'Details', nav: 2 }];
 
             return router.makeRelative({ moduleId: 'viewmodels' }) // router will look here for viewmodels by convention
