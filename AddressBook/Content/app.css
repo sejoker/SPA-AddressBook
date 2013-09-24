@@ -220,12 +220,13 @@ footer span {
 
 .article-container-full-width
 {
-    margin: 6px;
+    padding: 10px;
+    /*margin: 6px;
     float: left;
     width: 110px;
     height: 140px;
     border-bottom: solid 0 transparent;
-    padding: 1.5% .5%;
+    padding: 1.5% .5%;*/
 }
 
 div.article-counter {
@@ -237,5 +238,10 @@ div.article-counter {
 div.article-counter > address {
     display: inline-block;
     vertical-align: middle;
+}
+
+.contact {
+    font-weight: bold;
+    margin-right: 10px;
 }
 

@@ -9,10 +9,9 @@
             <div>
                 <img data-bind="attr: {src: ImageUrl}"
                     class="img-circle avatar"/>
-                <address data-bind="text: FirstName"></address>
-                <address data-bind="text: LastName"></address>
-                <address data-bind="text: Email"></address>
-                <address data-bind="text: Phone"></address>
+                Name:<span class="contact" data-bind="text: FullName"></span>
+                Email: <span class="contact" data-bind="text: Email"></span>
+                Phone: <span class="contact" data-bind="text: Phone"></span>
             </div>
         </article>
     </section>

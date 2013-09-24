@@ -25,7 +25,7 @@
     }
 
     function addContactPartialComputeds(entity) {
-        entity.fullName = ko.computed(function() {
+        entity.FullName = ko.computed(function() {
             return entity.FirstName() + ' '
                 + entity.LastName();
         });
