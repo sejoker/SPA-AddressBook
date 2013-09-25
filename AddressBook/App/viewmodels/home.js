@@ -1,4 +1,4 @@
-﻿define(['services/logger', 'services/dataservice'], function (logger, dataservice) {
+﻿define(['services/logger', 'services/datacontext'], function (logger, datacontext) {
     var title = 'Contacts';
     var contacts = ko.observableArray();
     var groups = ko.observableArray();
@@ -24,6 +24,6 @@
     //#endregion
     
     function refresh() {
-        return dataservice.getContactsPartials(contacts);
+        return datacontext.getContacts(contacts);
     }
 });

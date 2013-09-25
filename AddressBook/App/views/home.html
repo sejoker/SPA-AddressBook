@@ -7,11 +7,11 @@
     <section data-bind="foreach: contacts">
         <article class="article-container-full-width">
             <div>
-                <img data-bind="attr: {src: ImageUrl}"
+                <img data-bind="attr: { src: imageSource }"
                     class="img-circle avatar"/>
-                Name:<span class="contact" data-bind="text: FullName"></span>
-                Email: <span class="contact" data-bind="text: Email"></span>
-                Phone: <span class="contact" data-bind="text: Phone"></span>
+                Name:<span class="contact" data-bind="text: fullName"></span>
+                Email: <span class="contact" data-bind="text: email"></span>
+                Phone: <span class="contact" data-bind="text: phone"></span>
             </div>
         </article>
     </section>
