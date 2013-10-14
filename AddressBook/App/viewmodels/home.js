@@ -12,13 +12,18 @@
         groups: groups,
         title: title,
         attached: attached,
-        contactsByGroup: contactsByGroup
+        contactsByGroup: contactsByGroup,
+        contactsByName: contactsByName
     };
 
     return vm;
 
     function contactsByGroup(group) {
         return datacontext.getGroupContacts(contacts, group);
+    }
+    
+    function contactsByName(name) {
+        return datacontext.getContactsByName(contacts, name);
     }
 
     //#region Internal Methods
@@ -38,6 +43,11 @@
             var that = this;
             var groupId = that.options[that.selectedIndex].value;
             contactsByGroup(groupId);
+        });
+        $('#search').on('keyup', function() {
+            var that = this;
+            var name = that.value;
+            contactsByName(name);
         });
     }
     
