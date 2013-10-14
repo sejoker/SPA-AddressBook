@@ -1,6 +1,9 @@
 SPA-AddressBook
 ===============
 
-SPA address book sample built using Hot Towel template
+SPA address book sample built using Hot Towel template:
+- DurandalJS SPA framework
+- Breeze
+- Knockout
 
 Requirements: https://docs.google.com/document/d/1dUZ1n0UvZI2_L_RgObPV9GTIkdfelq1WV55URzd9WnU/edit?usp=sharing
