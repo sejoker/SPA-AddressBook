@@ -1,18 +1,21 @@
 ﻿<section>
-    <h2 class="page-title" data-bind="text: title"> </h2>
-<!--    <div class="article-counter">
-        <address data-bind="text: contacts().length"></address>
-        <address>found</address>
-    </div>-->
+    <h3 class="page-title" data-bind="text: title"> </h3>
+<!--        <div class="article-counter">
+                <address data-bind="text: contacts().length"></address>
+                <address>found</address>
+            </div>-->
+    <section>
+        <select data-bind="options: groups,  optionsText: 'name', optionsValue: 'id'" id="groups"></select>
+    </section>
     <section data-bind="foreach: contacts">
         <article class="article-container-full-width">
             <div>
                 <img data-bind="attr: { src: imageSource }"
-                    class="img-circle avatar"/>
+                     class="img-circle avatar"/>
                 Name:<span class="contact" data-bind="text: fullName"></span>
                 Email: <span class="contact" data-bind="text: email"></span>
                 Phone: <span class="contact" data-bind="text: phone"></span>
             </div>
         </article>
-    </section>
+    </section>    
 </section>

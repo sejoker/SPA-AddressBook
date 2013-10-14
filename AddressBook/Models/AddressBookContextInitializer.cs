@@ -7,27 +7,49 @@ using System.Web;
 
 namespace AddressBook.Models
 {
-    public class AddressBookContextInitializer: DropCreateDatabaseIfModelChanges<AddressBookDbContext>
+    public class AddressBookContextInitializer: DropCreateDatabaseAlways<AddressBookDbContext>
     {
         protected override void Seed(AddressBookDbContext context)
         {
-            context.Contacts.Add(new Contact
+            var friends = new ContactGroup
                 {
-                    FirstName = "Andrew",
-                    LastName = "Martinez",
-                    Email = "andrew.martinez65@example.com",
-                    ImageUrl = "http://api.randomuser.me/0.2/portraits/men/10.jpg",
-                    Phone = "050-242-23-21"
+                    Name = "Friends",
+                    Contacts = new List<Contact>
+                        {
+                            new Contact
+                                {
+                                    FirstName = "Andrew",
+                                    LastName = "Martinez",
+                                    Email = "andrew.martinez65@example.com",
+                                    ImageUrl = "http://api.randomuser.me/0.2/portraits/men/10.jpg",
+                                    Phone = "050-242-23-21",
+                                }
+                        }
+                };
+
+            var collegues = new ContactGroup
+                {
+                    Name = "Collegues",
+                    Contacts = new List<Contact>
+                        {
+                            new Contact
+                                {
+                                    FirstName = "Isobel",
+                                    LastName = "Cox",
+                                    Email = "isobel.cox70@example.com",
+                                    ImageUrl = "http://api.randomuser.me/0.2/portraits/women/33.jpg",
+                                    Phone = "050-523-13-64",
+                                }
+                        }
+                };
+
+            context.ContactGroups.Add(new ContactGroup
+                {
+                    Name = "All Contacts"
                 });
 
-            context.Contacts.Add(new Contact
-            {
-                FirstName = "Isobel",
-                LastName = "Cox",
-                Email = "isobel.cox70@example.com",
-                ImageUrl = "http://api.randomuser.me/0.2/portraits/women/33.jpg",
-                Phone = "050-523-13-64"
-            });
+            context.ContactGroups.Add(friends);
+            context.ContactGroups.Add(collegues);
 
             //http://api.randomuser.me/?seed=goldenLadybug
             context.Contacts.Add(new Contact
@@ -36,22 +58,7 @@ namespace AddressBook.Models
                 LastName = "Ramirez",
                 Email = "walter.ramirez16@example.com",
                 ImageUrl = "http://api.randomuser.me/0.2/portraits/men/14.jpg",
-                Phone = "050-642-32-75"
-            });
-
-            context.ContactGroups.Add(new ContactGroup
-                {
-                    Name = "Friends"
-                });
-
-            context.ContactGroups.Add(new ContactGroup
-            {
-                Name = "Collegues"
-            });
-
-            context.ContactGroups.Add(new ContactGroup
-            {
-                Name = "All"
+                Phone = "050-642-32-75",
             });
         }
     }

@@ -1,12 +1,11 @@
 ﻿define(['services/logger','durandal/system', 'viewmodels/model', 'config'], function (logger, system, model, config) {
     var entityQuery = breeze.EntityQuery,
         manager = configureBreezeManager();
-    var getContacts = function(contactsObservable) {
-        // reset the observable
-        contactsObservable([]);
+    var getContacts = function (contactsObservable) {
+        
         var query = entityQuery.from('Contacts')
-            .orderBy('lastName', 'firstName');
-
+            .orderBy('firstName', 'lastName');
+        
         return manager.executeQuery(query)
             .then(querySucceeded)
             .fail(queryFailed);
@@ -19,13 +18,54 @@
             logger.log('Retrieved contacts from remote service', data, true);
         }
     };
+    
+    var getGroupContacts = function (contactsObservable, groupId) {
 
-    var primeData = function () {
-        return Q.all([getLookups(), getContacts]);
+        var query = entityQuery.from('Contacts')
+            .orderBy('firstName', 'lastName');
+
+        if (groupId && groupId != '3') {
+            query = query.where('groupId', '==', groupId);
+        }
+        
+        return manager.executeQuery(query)
+            .then(querySucceeded)
+            .fail(queryFailed);
+
+        function querySucceeded(data) {
+            if (contactsObservable) {
+                contactsObservable(data.results);
+            }
+
+            logger.log('Retrieved contacts from remote service', data, true);
+        }
     };
     
+    var getGroups = function (groupsObservable) {
+        var query = entityQuery.from('Groups')
+            .orderBy('name');
+
+        return manager.executeQuery(query)
+            .then(querySucceeded)
+            .fail(queryFailed);
+
+        function querySucceeded(data) {
+            if (groupsObservable) {
+                groupsObservable(data.results);
+            }
+
+            logger.log('Retrieved groups from remote service', data, true);
+        }
+    };
+
+    var primeData = function () {
+        return Q.all([getGroups(), getContacts()]);
+    };
+     
     var datacontext = {
         getContacts: getContacts,
+        getGroupContacts: getGroupContacts,
+        getGroups: getGroups,
         primeData: primeData
     };
 

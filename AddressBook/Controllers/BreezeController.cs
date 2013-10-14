@@ -35,7 +35,13 @@ namespace AddressBook.Controllers
         }
 
         [HttpGet]
-        public IQueryable<ContactGroup> ContactGroups()
+        public IQueryable<ContactGroup> Groups()
+        {
+            return _contextProvider.Context.ContactGroups;
+        }
+
+        [HttpGet]
+        public IQueryable<ContactGroup> GroupContacts()
         {
             return _contextProvider.Context.ContactGroups;
         }

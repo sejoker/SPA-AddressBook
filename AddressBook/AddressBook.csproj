@@ -191,8 +191,10 @@
     <Compile Include="Models\AddressBookContextInitializer.cs" />
     <Compile Include="Models\AddressBookDbContext.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ContactConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\ContactGroup.cs" />
-    <Compile Include="Models\ContactGroupConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
